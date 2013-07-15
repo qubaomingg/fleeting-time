@@ -1,0 +1,495 @@
+/* Reset */
+html *{zoom:1;}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,code,em,img,q,small,strong,dd,dl,dt,li,ol,ul,fieldset,form,label,table,tbody,tr,th,td,input{margin:0;padding:0}
+body {font-size:12px;font-family:"Microsoft Yahei",Tahoma,Arial,Helvetica,STHeiti;_font-family:Tahoma,Arial,Helvetica,STHeiti;cursor:default;}
+html.hasFontSmoothing-false body{font-family:Tahoma,Arial,Helvetica,STHeiti;}
+a img, :link img, :visited img{border:0}
+table{border-collapse:collapse}
+ul{list-style:none}
+q:before,q:after,blockquote:before,blockquote:after{content:""}
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clearfix { display: inline-table; }
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+.clear{clear: both;}
+/* End hide from IE-mac */
+
+/*common*/
+html{
+    background: url(/img/htmlbg.png) repeat;
+}
+.wrapper-i{
+	width:900px;
+	margin: 0 auto;
+	position: relative;
+    padding:0 0 20px 0;
+}
+.input-text{
+    background: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    width:292px;
+    margin-bottom: 10px;
+}
+.input-text input{
+    border: 1px solid #a9a9a9;
+    background: #fff;
+    line-height:14px;
+    padding: 10px;
+    color: #5c5c5c;
+    width: 270px;
+    outline: none;
+    font-size: 14px;
+}
+.input-text.on{
+    background: #ececec;
+}
+.input-text.on input{
+    border: 1px solid #808080;
+    color:#222;
+}
+.wrapper a{
+	text-decoration:underline;
+	color: #8A8A8A;
+}
+.wrapper a:hover{
+	color: #666;
+}
+/*---------------buttons---------------*/
+.button{
+    position: relative;
+    display: block;
+    font-size: 14px;
+}
+.button.disable{
+    opacity: 0.6;
+    filter:alpha(opacity=60);
+    cursor: default;
+}
+.button.disable .arrow{
+    filter:alpha(opacity=60);
+}
+a.button{
+    text-decoration:none;
+}
+a.button:hover{
+    text-decoration: none;
+}
+.button .arrow,
+.button .text{
+    background: url(/img/btns.png) no-repeat;
+    display: block;
+}
+.button .arrow{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 10px;
+}
+.button .text{
+    padding-right:10px;
+    text-align: center;
+    color: #444;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.button .text em{
+    font-style: normal;
+    cursor: pointer;
+}
+.button.disable .text,
+.button.disable .text em{
+    cursor: default;
+}
+.button .text .icon{
+    padding:5px 10px;
+    background: url(/img/icons.png) no-repeat;
+    margin-right: 5px;
+}
+.btn-large-grey,
+.btn-large-grey .arrow,
+.btn-large-grey .text{
+    height: 60px;
+    line-height: 58px;
+}
+.btn-large-grey .text{
+    background-position: right 0;
+    margin-left: 10px;
+}
+.btn-large-blue,
+.btn-large-blue .arrow,
+.btn-large-blue .text{
+    height: 60px;
+    line-height: 58px;
+}
+.btn-large-blue .arrow{
+    background-position: 0 -68px;
+}
+.btn-large-blue .text{
+    background-position: right -68px;
+    margin-left: 10px;
+}
+.btn-mid-grey,
+.btn-mid-grey .arrow,
+.btn-mid-grey .text{
+    height: 50px;
+    line-height: 48px;
+}
+.btn-mid-grey .arrow{
+    background-position: 0 -135px;
+}
+.btn-mid-grey .text{
+    background-position: right -135px;
+    margin-left: 10px;
+}
+.btn-mid-blue,
+.btn-mid-blue .arrow,
+.btn-mid-blue .text{
+    height: 50px;
+    line-height: 48px;
+}
+.btn-mid-blue .arrow{
+    background-position: 0 -192px;
+}
+.btn-mid-blue .text{
+    background-position: right -192px;
+    margin-left: 10px;
+}
+.btn-small-grey,
+.btn-small-grey .arrow,
+.btn-small-grey .text{
+    height: 40px;
+    line-height: 38px;
+}
+.btn-small-grey .arrow{
+    background-position: 0 -248px;
+}
+.btn-small-grey .text{
+    background-position: right -248px;
+    margin-left: 10px;
+}
+.btn-small-blue,
+.btn-small-blue .arrow,
+.btn-small-blue .text{
+    height: 40px;
+    line-height: 38px;
+}
+.btn-small-blue .arrow{
+    background-position: 0 -295px;
+}
+.btn-small-blue .text{
+    background-position: right -295px;
+    margin-left: 10px;
+}
+.button.doc .icon{
+    background-position: 0 -107px;
+}
+.button.quick .icon{
+    background-position:0 -161px;
+}
+.button.discuss .icon{
+    background-position: -7px -166px;
+    margin-right: 10px;
+}
+.button.ok .icon{
+    background-position: -7px -205px;
+    margin-right: 10px;
+}
+.button.windows .icon{
+    background-position: 0 -247px;
+    padding: 5px 20px;
+}
+.button.linux .icon{
+    background-position: 0 -277px;
+    padding: 14px 20px;
+}
+.button.mac .icon{
+    background-position: 0 -318px;
+    padding: 14px 20px;
+}
+/*---------------buttons---------------*/
+/*.wrapper .blue-btn,
+.wrapper .grey-btn,
+.wrapper .white-btn{
+    display: block;
+    height: 39px;
+    line-height: 37px;
+    padding-left: 5px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+}
+.wrapper .blue-btn:hover{
+    color: #fff;
+}
+.wrapper .grey-btn,
+.wrapper .grey-btn:hover{
+    color: #444;
+}
+.wrapper .white-btn,
+.wrapper .white-btn:hover{
+    color: #8d8d8d;
+}
+.wrapper .btn-arrow{
+    background: url(../img/buttons.png) no-repeat;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 39px;
+}
+.wrapper .btn-con{
+    display: block;
+    padding-right: 5px;
+    height: 39px;
+    background:url(../img/buttons.png) no-repeat;
+}
+.wrapper .blue-btn .btn-con{
+    background-position: right 0;
+}
+.wrapper .blue-btn .btn-arrow{
+    background-position: 0 0;
+}
+.wrapper .blue-btn:hover .btn-con{
+    background-position: right -50px;
+}
+.wrapper .blue-btn:hover .btn-arrow{
+    background-position: 0 -50px;
+}
+.wrapper .blue-btn:active .btn-con{
+    background-position: right -100px;
+}
+.wrapper .blue-btn:active .btn-arrow{
+    background-position: 0 -100px;
+}
+
+.wrapper .grey-btn .btn-con{
+    background-position: right -150px;
+}
+.wrapper .grey-btn .btn-arrow{
+    background-position: 0 -150px;
+}
+.wrapper .grey-btn:hover .btn-con{
+    background-position: right -200px;
+}
+.wrapper .grey-btn:hover .btn-arrow{
+    background-position: 0 -200px;
+}
+.wrapper .white-btn .btn-con{
+    background-position: right -254px;
+}
+.wrapper .white-btn .btn-arrow{
+    background-position: 0 -254px;
+}
+.wrapper .white-btn:hover .btn-con{
+    background-position: right -304px;
+}
+.wrapper .white-btn:hover .btn-arrow{
+    background-position: 0 -304px;
+}
+.wrapper .white-btn:active .btn-con{
+    background-position: right -354px;
+}
+.wrapper .white-btn:active .btn-arrow{
+    background-position: 0 -354px;
+}
+.wrapper .white-btn.disable{
+    cursor: default;
+}
+.wrapper .white-btn.disable .btn-con{
+    background-position: right -354px;
+}
+.wrapper .white-btn.disable .btn-arrow{
+    background-position: 0 -354px;
+}*/
+/*page*/
+.wrapper .tool-title{
+    color: #2C5370;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+    padding: 20px 10px 20px 0;
+}
+.tool-title{
+    position: relative;
+}
+.tool-title .username{
+    position: absolute;
+    left:100px;
+    bottom:30px;
+    font-size:20px;
+}
+.tool-title .navbar{
+    position: absolute;
+    right:10px;
+    bottom:20px;
+}
+.tool-title .navbar a{
+    float: left;
+    display: inline;
+    background: url(/img/icons.png) no-repeat;
+    font-size: 12px;
+    font-weight: normal;
+    padding-left: 16px;
+    height: 16px;
+    line-height: 16px;
+    margin-left: 10px;
+}
+.tool-title .navbar .setting{
+    background-position: 0 2px;
+}
+.tool-title .navbar .doc{
+    background-position: 0 -22px;
+}
+.tool-title .navbar .manage{
+    background-position: 0 -48px;
+}
+.tool-title .navbar .logout{
+    background-position: 0 -74px;
+}
+.wrapper .tool-box{
+    background: #fff;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius:4px;
+    border:1px solid #c2c2c2;
+    border-top:1px solid #eaeaea;
+    border-left:1px solid #cecece;
+    box-shadow: 1px 1px 1px rgba(192,192,192,0.5);
+}
+.wrapper .tool-body{
+    position:relative;
+    padding:0;
+    top:-4px;
+    margin-right:1px;
+}
+.wrapper .tool-body .box{
+    border-bottom: 1px dashed #ccc;
+    padding: 50px 0;
+    margin: 0 34px;
+}
+/*combobox*/
+.combobox{
+    position: relative;
+    height: 37px;
+}
+.combobox .dropdown{
+    outline: none;
+}
+.combobox .dropselectbox h4{
+    border: 1px solid #7c7c7c;
+    background: #fff url(../img/comobox.png) no-repeat right center;
+    font-weight: normal;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    height: 37px;
+    line-height: 37px;
+    padding:0 25px 0 15px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    font-size:12px;
+}
+.combobox .dropselectbox .scroller{
+    z-index: 1;
+    background: white;
+    border-top: none;
+    overflow: hidden;
+    zoom: 1;
+    width: 218px;
+    margin-top: 1px;
+    border:1px solid #7C7C7C;
+    margin-top: -4px;
+    position: absolute;
+    display: none;
+}
+.combobox .dropselectbox ul li{
+    border-top: 1px solid #E8E8E8;
+    height: 37px;
+    line-height: 37px;
+    padding: 0 10px;
+    overflow: hidden;
+}
+.combobox .dropselectbox ul li.over{
+    background: #efefef;
+}
+.tip{
+    position: relative;
+    padding-left:10px;
+    height:41px;
+}
+.tip .arrow, .tip .text{
+    background: url(/img/tip.png) no-repeat 0 0;
+}
+.tip .arrow{
+    position: absolute;
+    top:0;
+    left:0;
+    width:10px;
+    overflow: hidden;
+    height:41px;
+}
+.tip .text{
+    background-position:right 0;
+    padding: 0 30px 0 10px;
+    height:41px;
+    line-height:41px;
+    color: #504f47;
+}
+.wrapper .footer{
+    padding-top: 10px;
+    color: #666;
+}
+/*error tip*/
+.tool-dialog .dialog-errmsg,
+.tool-box .errmsg{
+    color: #999;
+    position: absolute;
+    top:0;
+    left:50%;
+    height: 36px;
+    line-height: 34px;
+    width:203px;
+    margin-left:-112px;
+    background:url(/img/dialog-tip.png) no-repeat;
+    color: #8F8856;
+    padding:0 20px;
+    text-align:center;
+}
+.tool-dialog .dialog-errmsg a.close,
+.tool-box .errmsg a.close{
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 7px;
+    height: 7px;
+    background: url(/img/dialog-tip.png) no-repeat 0 -42px;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+.tool-dialog .dialog-errmsg a.close:hover,
+.tool-box .errmsg a.close:hover{
+    background-position: 0 -54px;
+}
+.scroller{
+    position: absolute;
+}
+.viewport { width: 100%;overflow: hidden; position: relative; }
+.overview { width:100%;list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
+.scrollbar{ position: absolute;top:0;right: 0;width: 2px;z-index: 2;}
+.track { height: 100%; width:2px; position: relative; background: #ccc;}
+.thumb { border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;height: 20px; width: 2px;left:0; cursor: pointer;background: #444; overflow: hidden; position: absolute; top: 0; }
+.thumb .end { overflow: hidden; height: 5px; width: 2px; }
+.disable { display: none; }

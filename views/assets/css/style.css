@@ -1,0 +1,46 @@
+/**
+ * Diandian Default Theme
+ * copyright: diandian.com (2012)
+ * author: firede
+ */
+
+/* CSS Reset */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,a,code,em,img,q,small,strong,dd,dl,dt,li,ol,ul,fieldset,form,label,table,tbody,tr,th,td,input{margin:0;padding:0}
+body {font-size:14px;font-family:"Microsoft Yahei",Tahoma,Arial,Helvetica,STHeiti;_font-family:Tahoma,Arial,Helvetica,STHeiti;cursor:default;}
+html.hasFontSmoothing-false body{font-family:Tahoma,Arial,Helvetica,STHeiti;}
+a img, :link img, :visited img{border:0}
+table{border-collapse:collapse}
+ul{list-style:none}
+q:before,q:after,blockquote:before,blockquote:after{content:""}
+
+/* Layout */
+body {
+	background-image: url('http://x.libdd.com/farm1/6be030/8c42f8a9/8F1F1.png');
+	_background-image:none;
+	background-repeat: repeat;
+	background-color: #ECEEF0;/*C*/
+	padding:15px;
+}
+
+a {
+	text-decoration:none;
+}
+
+ul#nav {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	overflow: hidden;
+	width: auto;
+}
+ul#nav li {
+	float: left;
+	display: inline;
+	margin: 0 5px 0 5px;
+	position: relative;
+}
+.theme {
+	float: left;
+	display: inline;
+	margin: 0 10px 0 10px;
+	position: relative;
+}

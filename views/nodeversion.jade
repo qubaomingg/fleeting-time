@@ -1,0 +1,14 @@
+link(rel='stylesheet', href='/css/baseconfig.css')
+script(type='text/javascript', src='/js/baseconfig.js')
+#config-step1.wrapper
+	.setting-holder
+		.head
+			img.theme-logo(src="/img/theme-logo.png")
+			img.logo(src="/img/logo.png")
+
+		.setting-box.tool-box.clearfix 
+			p.update-tip 
+				检测到你目前使用的nodejs版本为: #{current},
+				br 
+				但是venus依赖的版本为: #{need}, 请更新你的nodejs 
+				a(href='http://nodejs.org/#download', target='_blank') http://nodejs.org/#download

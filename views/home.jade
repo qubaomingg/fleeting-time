@@ -1,0 +1,199 @@
+- currentPage.set('home');
+link(rel='stylesheet', href='/css/home.css')
+script(type='text/javascript', src='/js/lib/jquery.autoresize.js')
+script(type='text/javascript', src='/js/home.js')
+.wrapper
+	.wrapper-i
+		- if (needToResetWorkspace)
+			#resetWorkspace(style="display:none")
+		include inc/header
+		.tool-box.tool-body
+			.tool-guide #{username}
+				a(href='http://www.diandian.com/feedback?topic=模板开发工具', target="_blank") 给我们提意见
+				a(href='http://doc.diandian.com/template/intro-create#new', target="_blank") 工具如何使用？
+				a(href='http://doc.diandian.com/template/quickstart/', target="_blank") 我是新手
+			.box.tool-new.clearfix(style=themes.length == 0?"border-bottom:none;":"")
+				a#new-tpl.button.doc.btn-large-blue.tpl-new(href="#")
+					span.arrow
+					span.text 
+						em.icon
+						em 新建模板
+				a#tpl-s-new.button.quick.btn-large-blue.tpl-s-new(href="#")
+					span.arrow
+					span.text 
+						em.icon
+						em 快速新建
+				a(href='http://doc.diandian.com/template/intro-create/#quick', target="_blank").quick-help
+			- if (themes.length > 0)
+				.box.tool-tpls
+					.tool-tpls-i.clearfix
+						each theme in themes
+							.tpl-item(id=theme.folder)
+								.cover-hold
+									.tpl-status-mask(style=theme.info.theme_info_id?"":"display:none")
+										.tpl-status-mask-selected(title="模板已发布")
+									img.cover(src='/theme/' + theme.folder + '/' + theme.thumbnail)
+									a.tpl-info(href="#")
+									.tpl-info-tip 
+										.tpl-info-mask	
+										.tpl-info-text(url=theme.folder, title='点击进行编辑') !{theme.info.description}
+								.tpl-name(url=theme.folder, title='点击进行编辑') #{theme.info.name}
+								.tpl-date 最后编辑时间：#{theme.modifiedTime}
+								a.tpl-preview(href='/preview/' + theme.folder + '/', target='_blank') 预览
+								a.tpl-previewadv(href='/previewadv/' + theme.folder + '/', target='_blank') 高级预览
+				.tool-publish.clearfix
+					div.publish-select.combobox
+						select#publish(name='publish')
+							each theme in themes
+								option(value=theme.id) #{theme.info.name}#{theme.info.theme_info_id?" (已发布)":""}
+					a.button.btn-small-grey.publish-btn(href='#')#check-btn
+						span.arrow
+						span.text 检测
+					a.button.btn-small-blue.publish-btn.disable(href='#')#publish-btn
+						span.arrow
+						span.text 发布
+		.log#log(style='display:none')
+			a.log-close(href='#')
+			.log-h
+			.log-c
+				.scrollbar
+					.track
+						.thumb
+							.end
+				.viewport
+					.overview#logs-holder
+				.log-note 如果你已经进行代码检查，可以忽略以上检测日志，点击发布按钮继续发布
+			.log-b
+		include inc/footer
+	.tool-box.tool-dialog#new-tpl-dialog(style="display:none;")
+		.dialog-title 新建模板
+			a(href="#").dialog-close#new-tpl-dialog-close
+		.dialog-content
+			form(action='/theme',method='POST')#new-tpl-form
+				ul.dialog-form
+					li.item.nobtm.clearfix
+						label 模板名称：
+						.input-text
+							input.placeholder(type="text", name="theme[name]")
+					li.item.nobtm.clearfix
+						label 目录名：
+						.input-text
+							input.placeholder(type="text", name="theme[folder]")
+					li.item.clearfix
+						label JS库依赖：
+						div.combobox
+							select(name="theme[jsrequire]")#js-base
+								option(value="不使用") 不使用
+								option(value="jQuery1.7.x") jQuery1.7.x
+								option(value="jQuery1.6.x") jQuery1.6.x
+								option(value="jQuery1.5.x") jQuery1.5.x
+								option(value="jQuery1.7.2") jQuery1.7.2
+								option(value="jQuery1.7.1") jQuery1.7.1
+								option(value="jQuery1.7") jQuery1.7
+								option(value="jQuery1.6.4") jQuery1.6.4
+								option(value="jQuery1.6.2") jQuery1.6.2
+								option(value="jQuery1.5.1") jQuery1.5.1
+								option(value="Mootools1.4.x") Mootools1.4.x
+								option(value="Mootools1.4.3") Mootools1.4.3
+								option(value="Mootools1.4.1") Mootools1.4.1
+								option(value="Underscore.js") Underscore.js
+								option(value="jQuery1.7.x+Underscore.js") jQuery1.7.x+Underscore.js
+								option(value="Tangram") Tangram
+								option(value="Tangram-core") Tangram-core
+					li.item.clearfix
+						label CSS库依赖：
+						div.combobox
+							select(name="theme[cssrequire]")#css-base
+								option(value="不使用") 不使用
+								option(value="Blueprint.screen+Blueprint.print+Blueprint.ie") Blueprint
+								option(value="Blueprint.screen") Blueprint.screen
+								option(value="Blueprint.print") Blueprint.print
+								option(value="Blueprint.ie") Blueprint.ie
+								option(value="960GridSystem.reset+960GridSystem.text+960GridSystem.960+960GridSystem.960_24_col") 960GridSystem
+								option(value="960GridSystem.reset") 960GridSystem.reset
+								option(value="960GridSystem.text") 960GridSystem.text
+								option(value="960GridSystem.960") 960GridSystem.960
+								option(value="960GridSystem.960_24_col") 960GridSystem.960_24_col
+					li.item.clearfix
+						label 模板描述：
+						textarea(style="height:80px", name="theme[description]")
+				.dialog-submit.clearfix
+					a.button.btn-mid-blue.submit(href="#")#new-submit
+						span.arrow
+						span.text 新建
+					a.save-as(href="#")#new-save-as 保存为常用配置
+				.dialog-errmsg(style='display:none')
+					.msg
+					a.close(href="#", onclick="this.parentNode.style.display='none'")
+	.tool-box.tool-dialog#setting-dialog(style="display:none;")
+		.dialog-title 设置
+			a(href="#").dialog-close#setting-dialog-close
+		.dialog-content
+			ul.tab
+				li.on(target="#tab-1")
+					span.arrow
+					div.text
+						a(href="#") 工具设置
+				li.last(target="#tab-2")
+					span.arrow
+					div.text
+						a(href="#") 系统设置
+			form(action='/setting',method='POST')#setting-form
+				.dialog-form#tab-1
+					.item.clearfix
+						label.select 默认预览使用博客：
+						div.combobox
+							select(name="setting[blog]")#setting-blog
+								- if (setting.bloglist.length > 0)
+									each blog in setting.bloglist
+										option(value=blog.id, selected=(blog.id == setting.defaultPreviewBlogId)) #{blog.name}
+					fieldset
+						legend 模板快速新建参数设置
+						.details
+							.item.nobtm.clearfix
+								label 默认模板名称前缀：
+								.input-text
+									input.placeholder(type="text", name="setting[name]", value=setting.themeNamePre)
+							.item.nobtm.clearfix
+								label 默认目录名前缀：
+								.input-text
+									input.placeholder(type="text", name="setting[dir]", value=setting.dirNamePre)
+				.dialog-form#tab-2(style="display:none")
+					a(href='http://doc.diandian.com/template/intro-create/#syssetting', target="_blank").quick-help
+					.item.nobtm.clearfix
+						label 工作目录：
+						.input-text
+							input.placeholder#workspace-input(type="text", name="setting[workspace]", value=setting.workspace)
+					.item.nobtm.hostname.clearfix
+						label IP地址：
+						.input-text.ip
+							input.placeholder#ip(type="text", name="setting[ip]", value=setting.ip)
+						.port-split :
+						.input-text.port
+							input.placeholder#port(type="text", name="setting[port]", value=setting.port)
+					.item.nobtm.hostname.clearfix
+						label 域名：
+						.input-text.host
+							input.placeholder#host-name(type="text", name="setting[hostname]", value=setting.hostname)
+				.dialog-submit.clearfix
+					a.button.btn-mid-blue.submit(href="#")#setting-submit
+						span.arrow
+						span.text 确定
+
+				.dialog-errmsg(style='display:none')
+					.msg
+					a.close(href="#", onclick="this.parentNode.style.display='none'")
+	- if (typeof updateInfo != "undefined")
+		.update-info#updateInfo 
+			a.close(href="#",onclick="this.parentNode.style.display='none';return false;")
+			.title Hi，#{username}，工具有新更新
+			ul.content 
+				li 
+					span 最新版本：
+					span.version #{updateInfo.version}
+					span 当前版本：
+					span.curversion #{updateInfo.currentVersion}
+				li
+					a(href=updateInfo.downloadLink, target="_blank") 下载更新
+					a(href=updateInfo.detailLink, target="_blank") 查看详情-&gt;	
+	

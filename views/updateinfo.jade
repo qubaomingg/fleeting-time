@@ -1,0 +1,19 @@
+link(rel='stylesheet', href='/css/baseconfig.css')
+script(type='text/javascript', src='/js/updateinfo.js')
+#config-step1.wrapper
+	.setting-holder
+		.head
+			img.theme-logo(src="/img/theme-logo.png")
+			img.logo(src="/img/logo.png")
+
+		.setting-box.tool-box.clearfix 
+			p.update-tip !{msg}
+			div.clearfix
+				p.update-tip.more
+					a(href="#{url}", target="_blank") 了解升级信息
+				a.button.btn-small-blue.update-btn(href='#')#update-btn
+					span.arrow
+					span.text 自动更新
+			div.logbox#logbox(style="display:none")
+				div.t 开始更新请勿刷新或者关闭浏览器
+				div.log

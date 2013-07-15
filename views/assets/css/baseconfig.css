@@ -1,0 +1,171 @@
+.wrapper{
+    padding: 30px 0 0;
+}
+.setting-holder{
+    width: 450px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+.setting-box.tool-box{
+    margin-bottom:0;
+    padding: 60px;
+    position: relative;
+}
+.setting-holder .head{
+    margin-bottom:10px;
+    overflow: hidden;
+    height:62px;
+}
+.setting-holder .head .logo{
+    float: right;
+    margin-top:20px;
+}
+.setting-box .input-text{
+    width: 322px;
+    margin-bottom: 10px;
+}
+.setting-box .input-text input{
+    width: 300px;
+}
+.setting-box .logo,
+.setting-box .form-box{
+    float: left;
+    display: inline;
+}
+.setting-box .logo{
+    width: 80px;
+    height: 60px;
+}
+.setting-box .logo .tool-box{
+    width: 62px;
+    height: 62px;
+}
+.setting-box .form-box{
+    width: 330px;
+    position: relative;
+}
+.form-submit{
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+.form-submit a{
+    margin-right:10px;
+}
+.form-submit .button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right:0;
+}
+.tip{
+    position: absolute;
+    bottom:0;
+    right:70px;
+}
+
+.setting-item label{
+    padding:4px;
+    display:block;
+    font-size:14px;
+    height:20px;
+    line-height:20px;
+}
+
+.input-tip{
+    font-size:12px;
+    color:#999;
+}
+
+.input-tip.error{
+    color:#f00;
+}
+
+.config-ok{
+    font-size:14px;
+}
+.config-ok h2{
+    font-weight:normal;
+    background:url(/img/ok.png) no-repeat;
+    height:16px;
+    line-height:14px;
+    padding-left:22px;
+    font-size:14px;
+}
+
+.wrapper .go-now{
+    font-size:20px;
+    display:block;
+    padding:10px 0;
+    color: #2488D7;
+}
+.wrapper .go-now:hover{
+    color: #2488D7;
+}
+
+.update-tip{
+    line-height:24px;
+    font-size:14px;
+}
+.more{
+    float: right;
+    margin-top: 15px;
+}
+
+.update-btn{
+    width: 100px;
+    margin-top:10px;
+    float: left;
+}
+.logbox{
+    margin-top: 10px;
+    background: #000;
+    color:#fff;
+    padding:10px 15px;
+    line-height: 20px;
+}
+.logbox .t{
+    color:#c2361f;
+}
+.logbox .item label{
+    float: left;
+    width: 50px;
+    text-align: right;
+    padding-right: 10px;
+    color: #28E90F;
+}
+.logbox .item .con{
+    float: right;
+    width: 238px;
+    color: #818383;
+    overflow: hidden;
+    word-break:break-word;
+}
+.logbox .fatal{
+    color:#818383;
+}
+.logbox .fatal label{
+    color:#c2361f;
+}
+.logbox .con .downloading{
+    width: 234px;
+    border: 1px solid #fff;
+    padding: 1px;
+    margin-top: 6px;
+    border-radius: 6px;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+}
+.logbox .con .downloading .i{
+    height: 5px;
+    background: #fff;
+    border-radius: 4px;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+}
+
+
+
+
+
+

@@ -1,0 +1,22 @@
+link(rel='stylesheet', href='/css/login.css')
+script(type='text/javascript', src='/js/login.js')
+.wrapper
+	.login-holder
+		.head
+			img.theme-logo(src="/img/theme-logo.png")
+			img.logo(src="/img/logo.png")
+		.login-box.tool-box.clearfix
+			.form-box
+				form#login-form(method="post", action='/login')
+					.input-text
+						input.placeholder(type="text", name="user[account]", default="点点帐号", value=account)
+					.input-text
+						input.placeholder(type="password", name="user[password]", default="******", value=password)
+					.form-submit
+						a(href="http://www.diandian.com/password/forgot", target="_blank") 忘记密码?
+						a(href='http://www.diandian.com/j/454', target='_blank') 注册
+						a#login-submit.button.btn-small-blue(href="#", style="width: 80px")
+							span.arrow
+							span.text 登录
+					- if (typeof errorMsg != 'undefined' && errorMsg)
+						div#errmsg(style="display:none") !{errorMsg}

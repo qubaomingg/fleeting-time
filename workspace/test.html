@@ -1,0 +1,104 @@
+!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{$meta.title}</title>
+    </head>
+    <body>
+        <h1>{$global.name}</h1>
+        {?$global.description}
+            <p>{$global.description}</p>
+        {/$global.description}
+
+        <div class="posts">
+            {?loop:posts}
+
+                <!-- 文章类型 -->
+                {?post.text}
+                    <div class="post text">
+                        {?$text.title}
+                            <h3><a href="{$post.url}">{$text.title}</a></h3>
+                        {/$text.title}
+                        {?$text.content}
+                            <div class="content">{$text.content}</div>
+                        {/$text.content}
+                    </div>
+                {/post.text}
+
+                <!-- 图片类型 -->
+                {?post.photo}
+                    <div class="post photo">
+                        {?loop:photos}
+                            <div class="photo-item">
+                                <img src="{$photo.500.src}" width="{$photo.500.width}" height="{$photo.500.height}" />
+                                {?$photo.description}
+                                    <div class="desc">{$photo.description}</div>
+                                {/$photo.description}
+                            </div>
+                        {/loop:photos}
+                        {?$photos.title}
+                            <h3><a href="{$post.url}">{$photos.title}</a></h3>
+                        {/$photos.title}
+                        {?$photos.description}
+                            <div class="desc">{$photos.description}</div>
+                        {/$photos.description}
+                    </div>
+                {/post.photo}
+
+                <!-- 音乐类型 -->
+                {?post.audio}
+                    <div class="post audio">
+                        <div class="cover"><img src="{$audio.cover}" /></div>
+                        <div class="player">{$audio.player}</div>
+                        <div class="info">{$audio.song} - {$audio.artist}</div>
+                        {?$audio.description}
+                            <div class="desc">{$audio.description}</div>
+                        {/$audio.description}
+                    </div>
+                {/post.audio}
+
+                <!-- 视频类型 -->
+                {?post.video}
+                    <div class="post video">
+                        <div class="cover"><img src="{$video.cover}" /></div>
+                        <div class="player">{$video.player}</div>
+                        {?$video.description}
+                            <div class="desc">{$video.description}</div>
+                        {/$video.description}
+                    </div>
+                {/post.video}
+
+                <!-- 链接类型 -->
+                {?post.link}
+                    <div class="post link">
+                        <h3>
+                            <a href="{$post.url}">
+                                {?$link.title}
+                                    {$link.title}
+                                {/$link.title}
+                                {?!$link.title}
+                                    {$link.url}
+                                {/!$link.title}
+                            </a>
+                        </h3>
+                        {?$link.description}
+                            <div class="desc">{$link.description}</div>
+                        {/$link.description}
+                    </div>
+                {/post.link}
+
+            {/loop:posts}
+        </div>
+
+        {?pagination}
+            <div class="pagination">
+                {?pagination.prev}
+                    <a href="{$pagination.prev.url}">上一页</a>
+                {/pagination.prev}
+                {?pagination.next}
+                    <a href="{$pagination.next.url}">下一页</a>
+                {/pagination.next}
+            </div>
+        {/pagination}
+    </body>
+</html>

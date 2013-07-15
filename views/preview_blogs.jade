@@ -1,0 +1,6 @@
+link(rel='stylesheet', href='/css/preview_blogs.css')
+script(type='text/javascript', src='/js/preview_blogs.js')
+select#blog-selector
+	- if (blogs.length > 0)
+		each blog in blogs
+			option(value=blog.id) #{blog.name}

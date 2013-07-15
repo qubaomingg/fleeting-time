@@ -1,0 +1,16 @@
+html{background:transparent;}
+.combobox{
+	width:44px;
+	position: absolute;
+	bottom:3px;
+	right:0;
+    height:40px;
+}
+.combobox .dropselectbox h4{
+    text-indent:-9999px;
+    overflow: hidden;
+    height:37px;
+}
+.combobox .dropselectbox ul li{
+	overflow: hidden;
+}

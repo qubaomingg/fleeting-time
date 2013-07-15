@@ -1,0 +1,22 @@
+link(rel='stylesheet', href='/css/baseconfig.css')
+script(type='text/javascript', src='/js/baseconfig.js')
+#config-step1.wrapper
+	.setting-holder
+		.head
+			img.theme-logo(src="/img/theme-logo.png")
+			img.logo(src="/img/logo.png")
+
+		.setting-box.tool-box.clearfix
+			- if (typeof workspaceErr != 'undefined' && workspaceErr)
+				.errmsg
+					.msg #{workspaceErr}
+					a.close(href="#", onclick="this.parentNode.style.display='none'")
+			.wait-for-restart
+				正在等待服务器重启
+				span#time (5)
+			.config-ok(style="display:none")
+				h2 配置成功, 马上访问
+
+				a.go-now(href="#{host}") #{host}
+
+				开始体验Venus吧!

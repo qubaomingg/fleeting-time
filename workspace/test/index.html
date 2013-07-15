@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>{$meta.title}</title>
+
+    <meta name="description" content="{$meta.description|nohtml}">
+    <meta name="keywords" content="{$meta.keywords|nohtml}">
+    <link href="{$meta.rss}" rel="alternate" title="订阅{$global.name|nohtml}" type="application/rss+xml">
+    <link rel="shortcut icon" type="image/jpeg" href="{$meta.favicon}">
+    <link rel="apple-touch-icon" href="{$meta.mobile_icon}">
+    <link rel="stylesheet" href="http://t.libdd.com/css/base/rich-content.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <script type='text/javascript' src='http://t.libdd.com/js/libs/jquery/jquery-1.7-latest.js'></script>    
+    <script type="text/javascript" src="/js/easing.js"></script>
+     <!--[if !IE]>-->  
+        <link rel="stylesheet" href="/css/main.css">
+        <script type="text/javascript" src="/js/main.js"></script>
+    <!--<![endif]-->
+    <!--[if IE 9]>
+        <link rel="stylesheet" href="../css/main.css">
+        <script type="text/javascript" src="/js/main.js"></script>
+    <![endif]-->
+    <!--[if lte IE 8]>
+      
+        <script type="text/javascript" src="{?theme.root}/js/excanvas.js{/theme.root}"></script>
+        <script type="text/javascript" src="{?theme.root}/js/iemain.js{/theme.root}"></script>
+        <link rel="stylesheet" href="{?theme.root}/css/imain.css">
+    <![endif]-->
+</head>
+<body>
+    <div id="wrap">
+    <div id="title">
+        <a id="cover" href="{$global.url}">
+            <img src="{$global.cover_200}" />
+        </a>
+
+        <div class="name">
+            <h1>{$global.name}</h1>
+            {?$global.description}
+                <p>{$global.description}</p>
+            {/$global.description}
+        </div>
+    </div>
+
+    <a  id="top" href="#topBody"><img  src="./img/top.png"></img></a>
+    <a  id="back" href=''><img  src="./img/back.png" title='返回'></img></a>
+    <div id="contain">
+        <div id='center-img'>
+            <img src="../img/yuanhuan.png" class="contain-bg">
+            <p class="center-text">My<br><span>LifeStyle</span></p>    
+        </div>
+        <!-- 从服务器javascript获得图片信息 -->
+        <script type="server/javascript">
+                var arrPhotoSrc = [];
+
+                var posts = dian.data.posts;
+                posts.forEach(function(post){
+                    if(post.type === 'photo'){
+                        post.photos.forEach(function(photo){
+                            arrPhotoSrc.push(photo['500'].src);
+                        });
+                    }
+                });
+        </script>
+        <!-- 在页面script中获得刚才的数据，记得要用write在能在页面上访问 -->
+        <script type="text/javascript">
+            var tempPhotoSrc = '<? write(arrPhotoSrc); ?>';
+            var photoSrc = tempPhotoSrc.split(',');
+        </script>
+        <div class='photo-outer'>
+
+        {?loop:posts}
+            {?post.photo}
+                <div class="post photo">
+                     <div class="hover-back-spe"><span>图片</span></div>
+                <!-- 这里loop,点点是按时间节点，把一次上传的照片当成一个集合。假如上传了(无论什么)，就会if两次。 -->
+                {?loop:photos}
+                    {?photos@first}
+                        <a  href="{$post.url}">
+                            <img src="{$photo.500.src}"/>
+                        </a>
+                    {/photos@first}
+                {/loop:photos}
+                </div>
+             {/post.photo}
+        {/loop:posts}
+        </div>
+
+        <div class="alink-outer">
+            <div class="second-jiao"></div>
+            <div class="hover-back-spe"><span>链接</span></div>
+                <div class="alink">
+                {?loop:posts}
+                    {?post.link}
+                        <div class="post link">
+                            <h3>
+                                <a href="{$post.url}">
+                                    {?$link.title}
+                                        {$link.title}
+                                    {/$link.title}
+                                    {$link.url|truncate:"10"}
+                                </a>
+                            </h3>
+                            {?$link.description}
+                                <div class="desc">{$link.description}</div>
+                            {/$link.description}
+                        </div>
+                    {/post.link}
+                {/loop:posts}
+            </div>
+        </div>
+        <div class="texts-outer">
+            <div class="first-jiao"></div>
+            <div class="hover-back-spe"><span>文章</span></div>
+            <div class="texts">
+                {?loop:posts}
+                    {?post.text}    
+                        <div class="post text">
+                            {?$text.title}
+                                <h3><a href="{$post.url}">{$text.title}</a></h3>
+                            {/$text.title}
+                            {?$text.content}
+                                <div class="content">{$text.content}</div>
+                            {/$text.content}
+                           
+                        </div>
+                    {/post.text}
+                {/loop:posts}
+            </div>
+        </div>
+        <div class="music">
+             <div class="hover-back-spe"><span>音乐</span></div>
+            {?loop:posts}
+                {?post.audio}
+                    <div class="post audio">
+                        <div class="cover"><img src="{$audio.cover}" /></div>
+                    </div>
+                {/post.audio}
+            {/loop:posts}
+        </div>
+         <div class="film">
+             <div class="hover-back-spe"><span>视频</span></div>
+            {?loop:posts}
+                 {?post.video}
+                    <div class="post video">
+                        <div class="cover"><img src="{$video.cover}" /></div>
+                    </div>
+                {/post.video}
+            {/loop:posts}
+        </div>
+    <div id="music-detail">
+    {?loop:posts}
+         {?post.audio}
+        <div class="post-content music-sigle">
+                <div class='right-info-music'>
+                    <div class="right-info-wrap">
+                         <div class="hosting">
+                            {?$audio.hosting|eq:"diandian"}来自：点点{/$audio.hosting}
+                            {?$audio.hosting|eq:"xiami"}来自：虾米{/$audio.hosting}
+                        </div>
+                        <div>专辑：{$audio.album}</div>
+                        <div class="info">{$audio.song} - {$audio.artist}</div>
+                        <div class="player" >{$audio.player}</div>
+                    </div>
+                </div>
+                <div class='left-info-music'>
+                    <img  class="img-cover" src="{$audio.cover}"/>
+                </div>
+        </div>
+         {/post.audio}
+    {/loop:posts}
+</div>
+<div id="film-detail">
+    {?loop:posts}
+         {?post.video}
+        <div class="post-content film-sigle">
+                <div class='right-info-film'>
+                    <div class="right-info-wrap">
+                        <div class="player videoPlayer">{$video.player}</div>
+                    </div>
+                </div>
+                <div class='left-info-film'>
+                   {?$video.description}
+                        <p>{$video.description}</p>
+                    {/$video.description}
+                </div>
+        </div>
+         {/post.video}
+    {/loop:posts}
+</div>
+<div id="link-detail">
+    {?loop:posts}
+         {?post.link}
+        <div class="post-content link-sigle">
+                <div class='right-info-link'>
+                    <div class="right-info-wrap">
+                        {?$link.title}
+                            {$link.title}
+                        {/$link.title}
+                        {?$link.description}
+                           <div class="desc">{$link.description}</div>
+                        {/$link.description}
+                    </div>
+                </div>
+                <div class='left-info-link'>
+                    <p>{$link.url|truncate:"30"}</p>
+                    
+                </div>
+        </div>
+         {/post.link}
+    {/loop:posts}
+</div>
+<div id="texts-detail">
+    <div class="text">
+            {?loop:posts}
+                {?post.text}    
+                    <div class="post">
+                        {?$text.title}
+                            <h3><a href="{$post.url}">{$text.title}</a></h3>
+                        {/$text.title}
+                        {?$text.content}
+                            <div class="content">{$text.content}</div>
+                        {/$text.content}               
+                    </div>
+                {/post.text}
+            {/loop:posts}
+    </div>
+</div>
+    </div>
+    <div id='right-rss'>
+        <div class='rss-one'>
+            {?contribute}
+                <a href="{$contribute.url}"><img class="first-rss" src="../img/tou.png"></a>
+            {/contribute}
+        </div>
+        <div class='rss-two'>
+            {?inbox}
+            <a href="{$inbox.url}"><img src="../img/shi.png"></a>
+            {/inbox}
+        </div>
+        <a href="{$global.archive_url}"><img src="../img/cun.png"></a>
+        <a href="{$meta.rss}"><img src="../img/rss.png"></a>
+        </div>
+    <div class='outerHide'>
+        <div id="hideLeft">
+            <div class='hideTop'>
+                <input type="button" class='hidebutton' value="保存"></input>
+                <input type="button"class='hidebutton' value="恢复默认"></input>
+            </div>
+             <div class='hideMid'>
+                <input type="button" class='hidebutton' value="篮球"></input>
+                <input type="button"class='hidebutton' value="足球"></input>
+                <input type="button"class='hidebutton' value="美女"></input>
+                <input type="button"class='hidebutton' value="其他"></input>
+            </div>
+            <div class='hideBg'>
+                <div class='baseketball hideBgchild'>
+                    <div class='sigle'>
+                        <span>韦德</span>
+                        <img src="../img/baseketball/1.jpg" alt="">        
+                    </div>
+                    <div class='sigle '>
+                        <span>韦德</span>
+                        <img src="../img/baseketball/2.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>詹姆斯</span>
+                        <img src="../img/baseketball/3.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>科比</span>
+                        <img src="../img/baseketball/4.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>林书豪</span>
+                        <img src="../img/baseketball/5.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>科比</span>
+                        <img src="../img/baseketball/6.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>科比</span>
+                        <img src="../img/baseketball/7.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>科比</span>
+                        <img src="../img/baseketball/8.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>科比</span>
+                        <img src="../img/baseketball/9.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>麦蒂</span>
+                        <img src="../img/baseketball/10.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>麦蒂</span>
+                        <img src="../img/baseketball/11.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>詹姆斯</span>
+                        <img src="../img/baseketball/12.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>林书豪</span>
+                        <img src="../img/baseketball/13.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>詹姆斯</span>
+                        <img src="../img/baseketball/14.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>林书豪</span>
+                        <img src="../img/baseketball/15.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>林书豪</span>
+                        <img src="../img/baseketball/16.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <span>詹姆斯</span>
+                        <img src="../img/baseketball/17.jpg" alt="">        
+                    </div>
+
+               
+                </div>
+
+              
+                <div class='soccer hideBgchild'>
+                    <div class='sigle'>
+                        <img src="../img/soccer/0.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/1.png" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/2.png" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/3.png" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/4.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/5.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/6.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/7.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/8.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/9.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/10.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/11.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/12.png" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/soccer/13.jpg" alt="">        
+                    </div>
+                </div>
+                  <div class='beaut hideBgchild'>
+                    <div class='sigle'>
+                        <img src="../img/nv/1.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <img src="../img/nv/2.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <img src="../img/nv/3.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/nv/4.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/nv/5.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/nv/6.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/nv/7.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/nv/8.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/nv/9.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/nv/10.jpg" alt="">        
+                    </div>
+                    <div class='sigle'>
+                        <img src="../img/nv/11.jpg" alt="">        
+                    </div>
+                  
+               
+                </div>
+                <div class='otherbg hideBgchild'>
+                    <div class='sigle'>
+                        <img src="../img/other/1.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/2.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/3.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/4.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/5.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/6.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/7.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/8.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/9.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/10.jpg" alt="">        
+                    </div>
+                     <div class='sigle'>
+                        <img src="../img/other/11.jpg" alt="">        
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+        <a class='changeBg' href=""><img src="../img/changeBg.png"> </a>
+    </div>
+    </body>
+</html>
+

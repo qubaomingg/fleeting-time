@@ -1,0 +1,32 @@
+link(rel='stylesheet', href='/css/baseconfig.css')
+script(type='text/javascript', src='/js/baseconfig.js')
+#config-step1.wrapper
+	.setting-holder
+		.head
+			img.theme-logo(src="/img/theme-logo.png")
+			img.logo(src="/img/logo.png")
+
+		.setting-box.tool-box.clearfix
+			- if (typeof workspaceErr != 'undefined' && workspaceErr)
+				.errmsg
+					.msg #{workspaceErr}
+					a.close(href="#", onclick="this.parentNode.style.display='none'")
+			.form-box
+				form(action='/',method='POST')#base-form
+					.setting-item
+						label
+							工作目录
+							span.input-tip 模板数据存放的目录, 如D:\\Workspace
+							
+						.input-text
+							- if (typeof workspace != 'undefined' && workspace)
+								input.placeholder(type="text", name="setting[workspace]", value=workspace)
+							- else
+								input.placeholder(type="text", name="setting[workspace]")
+
+					input(type="hidden", name="step", value="1")
+
+					.form-submit
+						a#workspace-submit.button.btn-small-blue(href="#", style="width: 80px")
+							span.arrow
+							span.text 继续

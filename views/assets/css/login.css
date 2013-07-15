@@ -1,0 +1,63 @@
+.wrapper{
+    padding: 0;
+}
+.login-holder{
+    width: 450px;
+    margin: 0 auto;
+}
+.login-box.tool-box{
+    margin-bottom:0;
+    padding: 60px;
+}
+.login-holder .head{
+    margin-bottom:10px;
+    overflow: hidden;
+    height:62px;
+}
+.login-holder .head .logo{
+    float: right;
+    margin-top:20px;
+}
+.login-box .input-text{
+    width: 322px;
+    margin-bottom: 10px;
+}
+.login-box .input-text input{
+    width: 300px;
+}
+.login-box .logo,
+.login-box .form-box{
+    float: left;
+    display: inline;
+}
+.login-box .logo{
+    width: 80px;
+    height: 60px;
+}
+.login-box .logo .tool-box{
+    width: 62px;
+    height: 62px;
+}
+.login-box .form-box{
+    width: 330px;
+    position: relative;
+}
+.form-submit{
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+}
+.form-submit a{
+    margin-right:10px;
+}
+.form-submit .button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-right:0;
+}
+.tip{
+    position: absolute;
+    bottom:0;
+    right:70px;
+}

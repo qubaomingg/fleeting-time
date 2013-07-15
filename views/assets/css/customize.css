@@ -1,0 +1,33 @@
+html{
+	background:none;
+}
+.customize{
+	border:1px solid #7C7C7C;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	background:#fff;
+	width:42px;
+	height:37px;
+	overflow: hidden;
+	position: relative;
+}
+#icon{
+	background:url(/img/custmize.png) no-repeat center center;
+	width:42px;
+	height:37px;
+	position: absolute;
+	bottom:0;
+	right:0;
+	z-index:2;
+}
+#icon.fix{
+	background-image:url(/img/customize-b.png);
+}
+#options-box{
+	width:200px;
+	height:300px;
+}
+#tpl-preview{
+	width:80px;
+}

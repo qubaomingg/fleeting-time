@@ -1,0 +1,8 @@
+link(rel='stylesheet', href='/css/preview.css')
+script(type='text/javascript', src='/js/preview.js')
+
+div.combobox
+	select#blog-selector
+		- if (blogs.length > 0)
+			each blog in blogs
+				option(value=blog.id, selected=(blogId==blog.id)) #{blog.name}

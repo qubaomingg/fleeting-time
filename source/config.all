@@ -1,0 +1,9 @@
+{
+	"workspace":{"default":"", "null":false, "type":"directory"},
+	"ip":{"default":"127.0.0.1", "null":false},
+	"port":{"default":1987, "null":false},
+	"hostname":{"default":"", "null":true},
+	"themeNamePre":{"default":"主题", "null":false},
+	"dirNamePre":{"default":"theme", "null":false},
+	"defaultPreviewBlogId":{"default":"", "null":true}
+}

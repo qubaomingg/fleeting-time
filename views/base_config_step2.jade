@@ -1,0 +1,32 @@
+link(rel='stylesheet', href='/css/baseconfig.css')
+script(type='text/javascript', src='/js/baseconfig.js')
+#config-step2.wrapper
+	.setting-holder
+		.head
+			img.theme-logo(src="/img/theme-logo.png")
+			img.logo(src="/img/logo.png")
+
+		.setting-box.tool-box.clearfix
+			-if (typeof step2Err != 'undefined' && step2Err)
+				.errmsg
+					.msg #{step2Err}
+					a.close(href="#", onclick="this.parentNode.style.display='none'")
+			.form-box
+				form(action='/',method='POST')#base-form
+					input(type="hidden", name="step", value="2")
+					input(type="hidden", name="setting[hostname]", value=hostname)
+
+					.setting-item
+						label 监听IP
+						.input-text
+							input.placeholder(type="text", name="setting[ip]", value=ip)
+
+					.setting-item
+						label 监听端口
+						.input-text
+							input.placeholder(type="text", name="setting[port]", value=port)
+
+					.form-submit
+						a#all-submit.button.btn-small-blue(href="#", style="width: 80px")
+							span.arrow
+							span.text 完成
