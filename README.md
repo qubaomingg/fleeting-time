@@ -1,4 +1,4 @@
 fleeting-time
 =============
 
-a blog theme from diandian.
+a blog theme for diandian.
